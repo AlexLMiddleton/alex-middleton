@@ -1,0 +1,34 @@
+.contact-main {
+    width: 100%;
+    background-color: white;
+}
+
+.contact-text-div {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.contact-flex {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contact-flex p {
+    font-size: 2em;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-flex p {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .contact-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+}

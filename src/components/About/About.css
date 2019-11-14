@@ -1,0 +1,28 @@
+.about-main {
+    width: 100%;
+    background-color: white;
+}
+
+.about-text-div {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.about-flex-container {
+    display: flex;
+}
+
+.about-bio-text {
+    flex-basis: 56%;
+    margin-right: 2%;
+}
+
+.about-education-text {
+    flex-basis: 42%;
+}
+
+@media screen and (max-width: 768px) {
+    .about-flex-container {
+        flex-direction: column;
+    }
+}

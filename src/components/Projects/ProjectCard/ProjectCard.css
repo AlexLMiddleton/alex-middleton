@@ -1,0 +1,89 @@
+/* Card Container */
+.card-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Title Container */
+.title-container {
+    height: 15em;
+    width: 25em;
+    transition: 0.5s ease;
+}
+
+.title-container h1 {
+    color: white;
+    text-align: center;
+    padding-top: 2.4em;
+}
+
+.title-container:hover {
+    opacity: 0;
+}
+
+
+
+/* Info Container */
+.info-container {
+    position: absolute;
+    height: 15em;
+    width: 25em;
+    opacity: 0;
+    transition: .5s ease;
+    line-height: 1.0;
+    color: white;
+}
+
+.info-container h2 {
+    text-align: center;
+    line-height: 1.0;
+}
+
+.info-container hr {
+    width: 100%;
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+.info-container p {
+    font-size: 1em;
+    line-height: 1.0;
+}
+
+.info-container a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: blue;
+    line-height: 1.0;
+}
+
+.info-container:hover, .info-container:active {
+    opacity: 1;
+    background-color:black;
+    padding: 0 10px;
+    transform: scale(1.35);
+    line-height: 1.0;
+    font-size: 16px;
+}
+
+.info-container h4 {
+    text-align: center;
+    line-height: 1.0;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    .title-container {
+        width: 80%;
+    }
+    .info-container {
+        width: 60%;
+    }
+    .info-container p {
+        font-size: 12px;
+    }
+}

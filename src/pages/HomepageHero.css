@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Glass+Antiqua&display=swap');
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.hero-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero-sub {
+    font-family: 'Glass Antiqua', cursive;
+    font-size: 3rem;
+    padding: 3% 5% 3% 5%;
+    background-color: navy;
+    color: white;
+    position: absolute;
+    text-align: center;
+}
+
+.circle-container {
+    border: 5px solid lightblue;
+    border-radius: 50%;
+    padding: 15px 20px;
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+    background-color: white;
+    position: absolute;
+    bottom: 7%;
+}
+
+@media screen and (max-width: 767px) {
+    .circle-container {
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,24 @@
+.projects-main {
+    width: 100%;
+    background-color: white;
+}
+
+.projects-container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    color: 'white';
+}
+
+@media screen and (max-width: 1200px) {
+    .card-container {
+        flex-direction: column;
+    }
+}
