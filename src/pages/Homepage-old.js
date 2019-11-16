@@ -8,7 +8,7 @@ import Technology from '../components/Technology/Technology'
 import Contact from '../components/Contact/Contact'
 import Projects from '../components/Projects/Projects'
 
-import './HomepageNavbar.css'
+import './HomepageToolbar.css'
 import './HomepageHero.css'
 
 // Hero Imports
@@ -20,11 +20,8 @@ function useOnScreen(options) {
   const technologyRef = React.useRef()
   const projectsRef = React.useRef()
   const contactRef = React.useRef()
-  const heroRef = React.useRef()
 
   const [visible, setVisible] = React.useState(false)
-
-
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -33,24 +30,42 @@ function useOnScreen(options) {
 
     if (aboutRef.current) {
       observer.observe(aboutRef.current)
+    } else if (technologyRef.current) {
+        observer.observe(technologyRef.current)
+    } else if (contactRef.current) {
+        observer.observe(contactRef.current)
+    } else if (homeRef.current) {
+      observer.observe(homeRef.current)
+    } else if (projectsRef.current) {
+      observer.observe(projectsRef.current)
     }
 
     return () => {
       if (aboutRef.current) {
         observer.unobserve(aboutRef.current)
+      } else if (technologyRef.current) {
+          observer.unobserve(technologyRef.current)
+      } else if (contactRef.current) {
+          observer.unobserve(contactRef.current)
+      } else if (homeRef.current) {
+        observer.unobserve(homeRef.current)
+      } else if (projectsRef.current) {
+        observer.unobserve(projectsRef.current)
       }
     }
-  }, [homeRef, aboutRef, options])
+  }, [homeRef, aboutRef, technologyRef, projectsRef, contactRef, options])
 
-  return [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible]
+  return [homeRef, aboutRef, technologyRef, projectsRef, contactRef, visible]
 }
 
-function Homepage() {
-  const [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible] = useOnScreen({ rootMargin: '-80px' })
+function Homepage2() {
+  const [homeRef, aboutRef, technologyRef, projectsRef, contactRef, visible] = useOnScreen({ rootMargin: '-300px' })
 
   return (
     <div className="App">
-      <header className={visible ? 'nav' : 'hidden'}>
+      <div ref={homeRef} style={{ height: '100vh' }}>
+       { visible ? (
+        <header className='nav'>
             <ul>
                 <li>
                     <Link onClick={() => homeRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
@@ -79,9 +94,9 @@ function Homepage() {
                 </li>
             </ul>
         </header>
-      <div ref={homeRef} style={{ height: '100vh' }}>
+        ) : (
         <div className='hero-main' style={{ height: '100vh' }}>
-            <div ref={heroRef} className={visible ? 'hero-sub1' : 'hero-sub'}>
+            <div className='hero-sub'>
                 <h1>Hey, I'm Alex!</h1>
             </div>
             <div className="circle-container">
@@ -91,6 +106,7 @@ function Homepage() {
             </div>
         </div>
         ) 
+       }
       </div>
       <div className="homepage-flex" style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>
         <div ref={aboutRef}>
@@ -110,4 +126,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Homepage2;

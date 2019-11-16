@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Glass+Antiqua&display=swap');
 
+/* Make the circle image move up and down */
 @-webkit-keyframes mover {
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
@@ -8,6 +9,48 @@
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
 }
+
+/* Convert the hero section to a hidden navbar */
+@-webkit-keyframes movehero {
+    0%   {
+        width: 100%; 
+        top: 50%; 
+        left: 50%; 
+        right: 50%; 
+        background: navy; 
+        width: 100px;
+        opacity: 1;
+    }
+    100% {
+        width: 100%; 
+        top: 0px; 
+        left: 0% auto; 
+        right: 0% auto; 
+        background: navy; 
+        width: 100%;
+        opacity: 0;
+    }
+  }
+  
+  @keyframes movehero {
+    0%   {
+        top: 50%; 
+        left: 50%; 
+        right: 50%; 
+        color: #EEEEEE;
+        background: navy; 
+        width: 100px;
+        opacity: 1;
+    }
+    100% {
+        color: transparent;
+        background: navy; 
+        justify-content: center;
+        width: 100%;
+        height: calc(5% + 10px);
+        opacity: 1;
+    }
+  }
 
 .hero-main {
     display: flex;
@@ -21,9 +64,22 @@
     font-size: 3rem;
     padding: 3% 5% 3% 5%;
     background-color: navy;
-    color: white;
+    color: #EEEEEE;
     position: absolute;
     text-align: center;
+}
+
+.hero-sub1{
+    width: 100%;
+    animation: movehero .5s ease;
+    background-color: navy;
+    color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    height: calc(5% + 10px);
+    opacity: 1;
 }
 
 .circle-container {

@@ -1,10 +1,18 @@
-header {
-    position: fixed;
-    width: 100%;
-    transform: 
+.hidden {
+    visibility: 'hidden';
+    height: 0px;
+    opacity: 0;
 }
 
-ul {
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: opacity .5s ease-in;
+    z-index: 1;
+}
+
+.nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -13,17 +21,17 @@ ul {
     text-align: center;
 }
 
-li {
+.nav li {
     display: inline-block;
 }
 
-li a {
+.nav li a {
     display: block;
     padding: 20px 14px;
     text-decoration: none;
     color: white;
 }
 
-li a:hover {
+.nav li a:hover {
     background-color: lightblue;
 }
