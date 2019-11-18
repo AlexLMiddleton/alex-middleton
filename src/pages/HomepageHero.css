@@ -74,7 +74,7 @@
     padding: 3% 5% 3% 5%;
     background-color: navy;
     color: #EEEEEE;
-    position: fixed;
+    position: absolute;
     text-align: center;
 }
 

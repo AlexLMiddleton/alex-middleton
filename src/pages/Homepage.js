@@ -22,27 +22,22 @@ function useOnScreen(options) {
 
   const [visible, setVisible] = React.useState(false)
 
-  let listEls = Array.from(document.querySelectorAll('ul>li'))
-
   React.useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setVisible(entry.isIntersecting)
     }, options)
 
     if (aboutRef.current) {
+      console.log('About Ref: ', aboutRef)
       observer.observe(aboutRef.current)
-    } else if (technologyRef.current) {
-      observer.observe(technologyRef.current)
-    }
+    } 
 
     return () => {
       if (aboutRef.current) {
         observer.unobserve(aboutRef.current)
-      } else if (technologyRef.current) {
-        observer.unobserve(technologyRef.current)
-      }
+      } 
     }
-  }, [homeRef, aboutRef, technologyRef, listEls, options])
+  }, [homeRef, aboutRef, technologyRef, options])
 
   return [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible]
 }
