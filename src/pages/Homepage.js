@@ -11,8 +11,6 @@ import Projects from '../components/Projects/Projects'
 import './HomepageNavbar.css'
 import './HomepageHero.css'
 
-// Hero Imports
-
 
 function useOnScreen(options) {
   const homeRef = React.useRef()
@@ -24,7 +22,7 @@ function useOnScreen(options) {
 
   const [visible, setVisible] = React.useState(false)
 
-
+  let listEls = Array.from(document.querySelectorAll('ul>li'))
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -33,76 +31,87 @@ function useOnScreen(options) {
 
     if (aboutRef.current) {
       observer.observe(aboutRef.current)
+    } else if (technologyRef.current) {
+      observer.observe(technologyRef.current)
     }
 
     return () => {
       if (aboutRef.current) {
         observer.unobserve(aboutRef.current)
+      } else if (technologyRef.current) {
+        observer.unobserve(technologyRef.current)
       }
     }
-  }, [homeRef, aboutRef, options])
+  }, [homeRef, aboutRef, technologyRef, listEls, options])
 
   return [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible]
 }
 
 function Homepage() {
-  const [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible] = useOnScreen({ rootMargin: '-80px' })
+  const [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible] = useOnScreen({ threshold: .1 })
 
   return (
     <div className="App">
       <header className={visible ? 'nav' : 'hidden'}>
             <ul>
-                <li>
-                    <Link onClick={() => homeRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
+                <li id="home">
+                    <Link to='/' onClick={() => homeRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
                         HOME
                     </Link>
                 </li>
-                <li>
-                    <Link onClick={() => aboutRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
+                <li id="about">
+                    <Link to='/' onClick={() => aboutRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
                         ABOUT
                     </Link>
                 </li>
-                <li>
-                    <Link onClick={() => technologyRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
+                <li id="programming">
+                    <Link to='/' onClick={() => technologyRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
                         PROGRAMMING
                     </Link>
                 </li>
-                <li>
-                    <Link onClick={() => projectsRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
+                <li id="projects">
+                    <Link to='/' onClick={() => projectsRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
                         PROJECTS
                     </Link>
                 </li>
-                <li>
-                    <Link onClick={() => contactRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
+                <li id="contact">
+                    <Link to='/' onClick={() => contactRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
                         CONTACT
                     </Link>
                 </li>
             </ul>
         </header>
       <div ref={homeRef} style={{ height: '100vh' }}>
-        <div className='hero-main' style={{ height: '100vh' }}>
+        <div id="home" className='hero-main' style={{ height: '100vh' }}>
             <div ref={heroRef} className={visible ? 'hero-sub1' : 'hero-sub'}>
                 <h1>Hey, I'm Alex!</h1>
             </div>
-            <div className="circle-container">
+            {visible ? 
+              <div className="picture-container">
+                <Link to='' onClick={() => aboutRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
+                    <img alt='Alex Middleton, Charleston web developer' src={require('./alex-middleton_charleston-web-developer.png')} />
+                </Link>
+              </div> :
+              <div className="circle-container">
                 <Link to='' onClick={() => aboutRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
                     <FontAwesomeIcon icon={faArrowDown} style={{ color: 'navy' }} size="6x" />
                 </Link>
-            </div>
+              </div>
+            }
         </div>
         ) 
       </div>
       <div className="homepage-flex" style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>
-        <div ref={aboutRef}>
+        <div id="about" ref={aboutRef}>
             <About />
         </div>
-        <div ref={technologyRef}>
+        <div id="programming" ref={technologyRef}>
             <Technology />
         </div>
-        <div ref={projectsRef}>
+        <div id="projects" ref={projectsRef}>
             <Projects />
         </div>
-        <div ref={contactRef}>
+        <div id="contact" ref={contactRef}>
             <Contact />
         </div>
       </div>

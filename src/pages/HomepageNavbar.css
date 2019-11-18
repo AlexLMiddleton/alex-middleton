@@ -1,5 +1,5 @@
 .hidden {
-    visibility: 'hidden';
+    display: 'none';
     height: 0px;
     opacity: 0;
 }
@@ -33,5 +33,11 @@
 }
 
 .nav li a:hover {
+    background-color: white;
+    color: navy;
+}
+
+.nav .active {
+    width: 300px;
     background-color: lightblue;
 }

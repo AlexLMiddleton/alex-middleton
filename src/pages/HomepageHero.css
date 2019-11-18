@@ -31,8 +31,7 @@
         opacity: 0;
     }
   }
-  
-  @keyframes movehero {
+@keyframes movehero {
     0%   {
         top: 50%; 
         left: 50%; 
@@ -50,7 +49,17 @@
         height: calc(5% + 10px);
         opacity: 1;
     }
-  }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 .hero-main {
     display: flex;
@@ -65,7 +74,7 @@
     padding: 3% 5% 3% 5%;
     background-color: navy;
     color: #EEEEEE;
-    position: absolute;
+    position: fixed;
     text-align: center;
 }
 
@@ -86,11 +95,17 @@
     border: 5px solid lightblue;
     border-radius: 50%;
     padding: 15px 20px;
-    -webkit-animation: mover 1s infinite  alternate;
-    animation: mover 1s infinite  alternate;
+    -webkit-animation: mover 1s infinite alternate, imgGrow 4s ease-in;
+    animation: mover 1s infinite alternate, imgGrow 4s ease-in;
     background-color: white;
     position: absolute;
     bottom: 7%;
+}
+
+.picture-container {
+    position: absolute;
+    bottom: 7%;
+    animation: fadeIn .75s ease-in;
 }
 
 @media screen and (max-width: 767px) {

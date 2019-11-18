@@ -17,15 +17,6 @@ const ProjectsArray = [
         bgColor: 'blue',
         completed: false
     },
-    {
-        id: 3,
-        name: "Our Hour",
-        technologies: 'HTML, CSS, Material-UI, React, Redux, Express, Node, Twilio',
-        description: 'Select a restaurant from an API, schedule a time, and text an invite.',
-        url: 'http://www.alex-middleton.com',
-        bgColor: 'royalblue',
-        completed: false
-    },
 ]
 
 

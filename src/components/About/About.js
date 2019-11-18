@@ -11,7 +11,7 @@ const About = () => {
                     <div className="about-bio-text">
                         <h1>Who am I?</h1>
                         <hr style={{ width: '100% '}} />
-                        <p>My name is Alex Middleton.  I'm a native Charlestonian currently working as a Programmer Analyst for Charleston County School District.
+                        <p>My name is Alex Middleton.  I'm a native Charlestonian currently working as a Programmer Analyst in a local government agency.
                             I'm extremely passionate about web development, and I'm looking to transition into a front-end or full-stack web developer role.
                         </p>
                     </div>
@@ -20,8 +20,8 @@ const About = () => {
                         <hr style={{ width: '100% '}} />
                         <p>
                             <li style={{ display: 'block' }}>B.A., English -- College of Charleston</li>
-                            <li>M.A., I/O Psychology -- Appalachian State University</li>
-                            <li>Graduate, Full-Stack Web Development -- JRS Coding School</li>
+                            <li style={{ display: 'block' }}>M.A., I/O Psychology -- Appalachian State University</li>
+                            <li style={{ display: 'block' }}>Graduate, Full-Stack Web Development -- JRS Coding School</li>
                         </p>
                     </div>
                 </div>
