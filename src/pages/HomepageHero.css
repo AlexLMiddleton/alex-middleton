@@ -74,7 +74,7 @@
     padding: 3% 5% 3% 5%;
     background-color: navy;
     color: #EEEEEE;
-    position: absolute;
+    position: fixed;
     text-align: center;
 }
 
@@ -110,6 +110,16 @@
 
 @media screen and (max-width: 767px) {
     .circle-container {
-        visibility: hidden;
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .hero-sub {
+        position: absolute;
+    }
+    
+    .hero-sub h1 {
+        font-size: 42px;
+        text-align: center;
     }
 }
