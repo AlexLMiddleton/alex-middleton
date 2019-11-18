@@ -16,6 +16,15 @@
     justify-content: space-around;
 }
 
+.contact-flex a {
+    color: navy;
+}
+
+
+.contact-flex a:visited {
+    color: navy;
+}
+
 .contact-flex p {
     font-size: 2em;
 }
