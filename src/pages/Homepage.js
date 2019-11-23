@@ -29,7 +29,6 @@ function useOnScreen(options) {
     }, options)
 
     if (aboutRef.current) {
-      console.log('About Ref: ', aboutRef)
       observer.observe(aboutRef.current)
     } 
 
