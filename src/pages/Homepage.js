@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { faArrowDown, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
 import About from '../components/About/About'
 import Technology from '../components/Technology/Technology'
@@ -48,7 +48,7 @@ function Homepage() {
   return (
     <div className="App">
       <header className={visible ? 'nav' : 'hidden'}>
-        <div className="menu-icon" onClick={() => setMenuOpened(!menuOpened)}>MENU</div>
+        <div className="menu-icon" onClick={() => setMenuOpened(!menuOpened)}>MENU <FontAwesomeIcon icon={faCaretDown} style={{ color: 'white' }} size="1x" /></div>
           {menuOpened && window.matchMedia('(max-width: 767px)').matches ?
               <>
                 <ul>
