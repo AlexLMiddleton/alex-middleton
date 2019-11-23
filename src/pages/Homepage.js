@@ -21,6 +21,7 @@ function useOnScreen(options) {
   const heroRef = React.useRef()
 
   const [visible, setVisible] = React.useState(false)
+  const [menuOpened, setMenuOpened] = React.useState(false)
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -39,42 +40,78 @@ function useOnScreen(options) {
     }
   }, [homeRef, aboutRef, technologyRef, options])
 
-  return [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible]
+  return [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible, menuOpened, setMenuOpened]
 }
 
 function Homepage() {
-  const [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible] = useOnScreen({ threshold: .1 })
+  const [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible, menuOpened, setMenuOpened] = useOnScreen({ threshold: .1 })
 
   return (
     <div className="App">
       <header className={visible ? 'nav' : 'hidden'}>
-            <ul>
-                <li id="home">
-                    <Link to='/' onClick={() => homeRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
-                        HOME
-                    </Link>
-                </li>
-                <li id="about">
-                    <Link to='/' onClick={() => aboutRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
-                        ABOUT
-                    </Link>
-                </li>
-                <li id="programming">
-                    <Link to='/' onClick={() => technologyRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
-                        PROGRAMMING
-                    </Link>
-                </li>
-                <li id="projects">
-                    <Link to='/' onClick={() => projectsRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
-                        PROJECTS
-                    </Link>
-                </li>
-                <li id="contact">
-                    <Link to='/' onClick={() => contactRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'})}>
-                        CONTACT
-                    </Link>
-                </li>
-            </ul>
+        <div className="menu-icon" onClick={() => setMenuOpened(!menuOpened)}>MENU</div>
+          {menuOpened && window.matchMedia('(max-width: 767px)').matches ?
+              <>
+                <ul>
+                  <li id="home">
+                      <Link to='/' onClick={() => { homeRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          HOME
+                      </Link>
+                  </li>
+                  <li id="about">
+                      <Link to='/' onClick={() => { aboutRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          ABOUT
+                      </Link>
+                  </li>
+                  <li id="programming">
+                      <Link to='/' onClick={() => { technologyRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          PROGRAMMING
+                      </Link>
+                  </li>
+                  <li id="projects">
+                      <Link to='/' onClick={() => { projectsRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          PROJECTS
+                      </Link>
+                  </li>
+                  <li id="contact">
+                      <Link to='/' onClick={() => { contactRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          CONTACT
+                      </Link>
+                  </li>
+                </ul>
+              </>
+              : !menuOpened && window.matchMedia('(max-width: 767px)').matches ? <></>
+              :
+              <>
+                <ul>
+                  <li id="home">
+                      <Link to='/' onClick={() => { homeRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          HOME
+                      </Link>
+                  </li>
+                  <li id="about">
+                      <Link to='/' onClick={() => { aboutRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          ABOUT
+                      </Link>
+                  </li>
+                  <li id="programming">
+                      <Link to='/' onClick={() => { technologyRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          PROGRAMMING
+                      </Link>
+                  </li>
+                  <li id="projects">
+                      <Link to='/' onClick={() => { projectsRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          PROJECTS
+                      </Link>
+                  </li>
+                  <li id="contact">
+                      <Link to='/' onClick={() => { contactRef.current.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'}); setMenuOpened(false)}}>
+                          CONTACT
+                      </Link>
+                  </li>
+                </ul>
+              </>
+          }
         </header>
       <div ref={homeRef} style={{ height: '100vh' }}>
         <div id="home" className='hero-main' style={{ height: '100vh' }}>
