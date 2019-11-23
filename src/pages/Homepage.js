@@ -80,7 +80,7 @@ function Homepage() {
                   </li>
                 </ul>
               </>
-              : !menuOpened && window.matchMedia('(max-width: 767px)').matches ? <></>
+              : !menuOpened && window.matchMedia('(max-width: 767px)').matches ? ''
               :
               <>
                 <ul>
