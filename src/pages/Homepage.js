@@ -43,7 +43,7 @@ function useOnScreen(options) {
 }
 
 function Homepage() {
-  const [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible, menuOpened, setMenuOpened] = useOnScreen({ rootMargin: '650px 0px -100px -0px' })
+  const [homeRef, heroRef, aboutRef, technologyRef, projectsRef, contactRef, visible, menuOpened, setMenuOpened] = useOnScreen({ rootMargin: '650px 0px -40px -0px' })
 
   return (
     <div className="App">
