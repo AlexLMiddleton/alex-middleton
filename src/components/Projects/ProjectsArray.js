@@ -11,7 +11,7 @@ const ProjectsArray = [
     {
         id: 2,
         name: "Kristin Kee",
-        technologies: 'HTML, CSS, BulmaCSS, Gatsby, React, GraphQL',
+        technologies: 'HTML, CSS, Gatsby, React, GraphQL',
         description: 'This is an online resume for a marketer and project manager.',
         url: 'http://www.kristinkee.com',
         bgColor: 'blue',
