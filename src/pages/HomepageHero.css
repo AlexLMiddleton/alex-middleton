@@ -123,3 +123,24 @@
         text-align: center;
     }
 }
+
+@media (min-width: 481px) and (max-width: 900px) and (orientation: landscape) {
+    .circle-container {
+        border: 5px solid lightblue;
+        border-radius: 50%;
+        padding: 8px 12px;
+        font-size: 10px;
+        -webkit-animation: mover 1s infinite alternate, imgGrow 4s ease-in;
+        animation: mover 1s infinite alternate, imgGrow 4s ease-in;
+        background-color: white;
+        position: absolute;
+        bottom: 2%;
+    }
+
+    .picture-container {
+        position: absolute;
+        width: 86px;
+        bottom: 2%;
+        animation: fadeIn .75s ease-in;
+    }
+}
