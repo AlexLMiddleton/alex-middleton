@@ -139,7 +139,6 @@
 
     .picture-container {
         position: absolute;
-        width: 86px;
         bottom: 2%;
         animation: fadeIn .75s ease-in;
     }
