@@ -23,8 +23,8 @@ const ProjectsArray = [
     name: "Palmetto Salon",
     technologies: "HTML, CSS, React",
     description: "This is demo site I built for a local hair salon.",
-    url: "https://palmetto-salon-1.netlify.com/portfolio",
-    bgColor: "cornflowerblue",
+    url: "https://palmetto-salon-1.netlify.com",
+    bgColor: "royalblue",
     completed: true
   }
 ];
